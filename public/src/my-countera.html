@@ -1,0 +1,31 @@
+<link rel="import" href="../bower_components/polymer/polymer.html" />
+<link rel="import" href="./redux-store.html">
+
+<dom-module id="my-countera">
+  <template>
+    <div hidden$=[[count.role.a]]>
+      <h1>A</h1>
+    </div>
+  </template>
+
+  <script>
+    class MyCountera extends ReduxMixin(Polymer.Element) {
+      static get is() { return 'my-countera' }
+      static get properties() {
+        return {
+          count: {
+            type: Object,
+            statePath: 'count'
+          }
+        }
+      }
+
+      _equal(value1, value2) {
+        assert(value1);
+        return value1 === value2;
+      }
+    }
+
+    window.customElements.define(MyCountera.is, MyCountera);
+  </script>
+</dom-module>

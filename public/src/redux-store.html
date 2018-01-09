@@ -1,0 +1,29 @@
+<link rel="import" href="../bower_components/polymer-redux/polymer-redux.html" />
+
+<script>
+  const initialState = {
+    count: {'role':{'a':true}}
+  };
+
+  const reducer = (state, action) => {
+    if (!state) {
+      return initialState;
+    }
+
+    const { type, payload } = action;
+
+    switch (type) {
+      case 'A':
+        return { count: {'role':{'a':true}} }
+      case 'B':
+        return { count: {'role':{'b':true}} }
+      case 'C':
+        return { count: {'role':{'c':true}} }
+      default:
+        return state;
+    }
+  };
+
+  const store = Redux.createStore(reducer);
+  const ReduxMixin = PolymerRedux(store);
+</script>

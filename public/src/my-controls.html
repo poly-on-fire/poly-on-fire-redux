@@ -1,0 +1,75 @@
+<link rel="import" href="../bower_components/polymer/polymer.html" />
+<link rel="import" href="./redux-store.html">
+
+<dom-module id="my-controls">
+  <template>
+    <style>
+      button {
+        font-size: 2rem;
+        padding: 1rem;
+      }
+    </style>
+
+    <button on-click="handleClickHideA">Hide A</button>
+    &nbsp;
+    <button on-click="handleClickHideB">Hide B</button>
+    &nbsp;
+    <button on-click="handleClickHideC">Hide C</button>
+
+  </template>
+
+
+  <script>
+    class MyControls extends ReduxMixin(Polymer.Element) {
+      static get is() { return 'my-controls' }
+      // static get behaviors() {
+      //   return [ ReduxBehavior ];
+      // }
+      static get properties() {
+        return {
+          count: {
+            type: Object,
+            statePath: 'count'
+          },
+        }
+      }
+      static get actions() {
+        return {
+          hideA() {
+            return {
+              type: 'A'
+            }
+          },
+          hideB() {
+            return {
+              type: 'B'
+            }
+          },
+          hideC() {
+            return {
+              type: 'C'
+            }
+          }
+        }
+      }
+
+      connectedCallback() {
+        super.connectedCallback();
+      }
+
+      handleClickHideA() {
+        this.dispatch(MyControls.actions.hideA())
+      }
+
+      handleClickHideB() {
+        this.dispatch(MyControls.actions.hideB())
+      }
+
+      handleClickHideC() {
+        this.dispatch(MyControls.actions.hideC())
+      }
+    }
+
+    window.customElements.define(MyControls.is, MyControls);
+  </script>
+</dom-module>

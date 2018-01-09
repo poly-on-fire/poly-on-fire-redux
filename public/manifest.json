@@ -1,0 +1,6 @@
+{
+  "name": "poly-on-fire-redux",
+  "short_name": "poly-on-fire-redux",
+  "start_url": "/",
+  "display": "standalone"
+}
