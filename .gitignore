@@ -1,2 +1,7 @@
 public/bower_components
-public/node_modules
+functions/node_modules
+nopass.sh
+.metadata
+.idea
+.project
+.classpath
